@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "64aedab5-6903-4737-9bb7-680e3c36d20b",
+		"name": "Gmail Authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5318547"
+	},
+	"item": [
+		{
+			"name": "1.Get Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/spreadsheets&access_type=offline&redirect_uri=http://localhost&response_type=code&client_id=424096849316-akcvobcofdfrr53g1r6g8bl06na6qu7l.apps.googleusercontent.com",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"google",
+						"com"
+					],
+					"path": [
+						"o",
+						"oauth2",
+						"v2",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "https://www.googleapis.com/auth/spreadsheets"
+						},
+						{
+							"key": "access_type",
+							"value": "offline"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "424096849316-akcvobcofdfrr53g1r6g8bl06na6qu7l.apps.googleusercontent.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.Get  Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "code",
+							"value": "4/0AX4XfWitawmZTDV2N0rueW0H7ayiHj2QFlgeMhItFbmT6atAj2w8s4WM7eSNbCwnee6cNg",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "424096849316-akcvobcofdfrr53g1r6g8bl06na6qu7l.apps.googleusercontent.com",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "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",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://accounts.google.com/o/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"google",
+						"com"
+					],
+					"path": [
+						"o",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.Get AccessToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "424096849316-akcvobcofdfrr53g1r6g8bl06na6qu7l.apps.googleusercontent.com",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "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",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "1//03HTLORGXZXnRCgYIARAAGAMSNwF-L9IrA7bMNAsqHOkINUR_qYZBKNHVWEbqGEErw1a4xrTyEV7L4NPnBEbcOLW3xUrJFInEgO4",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://accounts.google.com/o/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"google",
+						"com"
+					],
+					"path": [
+						"o",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
